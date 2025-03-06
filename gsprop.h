@@ -14,7 +14,7 @@ public:
                 T value,
                 std::function<T(const T&)> s = [](const T& val) { return val; },
                 std::function<T(const T&)> g = [](const T& val) { return val; }
-        ) : value(value), getter(std::move(g)), setter(std::move(s)) {}
+        ) : value(value), setter(std::move(s)), getter(std::move(g)) {}
         
         operator T() const {
                 return getter(value);
@@ -30,5 +30,3 @@ public:
                 return *this;
         }
 };
-
-
